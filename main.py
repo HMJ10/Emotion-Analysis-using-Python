@@ -6,7 +6,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 
-text = open('test.txt', encoding='utf-8').read()
+text = open('test.txt', encoding='utf-8').read() # replace 'text.txt' with file you want to analyis
 lower_case = text.lower()
 cleaned_text = lower_case.translate(str.maketrans('', '', string.punctuation))
 
@@ -39,6 +39,7 @@ w = Counter(emotion_list)
 print(w)
 
 
+# Main FUnction used to analyis the emotion of the words used in the given text
 def emotions_analyse(sentiment_text):
     score = SentimentIntensityAnalyzer().polarity_scores(sentiment_text)
     if score['neg'] > score['pos']:
